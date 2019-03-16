@@ -1,25 +1,25 @@
--- 전역 haha 테이블을 확인한다.
+-- 댔丹haha
 print(haha)
 
--- 전역 haha.value를 출력한다.
+-- 댔丹haha.value
 print(haha.value)
 
--- 전역 haha.inside 테이블을 확인한다.
+-- 綾table
 print(haha.inside)
 
--- 전역 haha.inside.value를 출력한다.
+-- 綾table돨value令
 print(haha.inside.value)
 
--- haha.test 값을 넣는다.
+-- lua藤속haha.test
 haha.test = "input from lua"
 
--- LuaTinker 가 입력으로 테이블을 넘긴다.
+-- 댔丹깊목
 function print_table(arg)
 	print("arg = ", arg)
 	print("arg.name = ", arg.name)
 end
 
--- LuaTinker 에게 테이블을 넘긴다.
+-- 럿쀼寧몸애꼬table
 function return_table(arg)
 	local ret = {}
 	ret.name = arg

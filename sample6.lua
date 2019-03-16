@@ -1,18 +1,17 @@
--- lua coroutine 테스트 함수
+-- lua coroutine
 function ThreadTest()
-	print("ThreadTest 시작")
+	print("ThreadTest enter")
 	
-	print("TestFunc 호출")
-	-- 내부에서 lua_yield() 가 호출된다.
+	print("TestFunc test")
+	-- lua_yield()삔밈폅
 	TestFunc()
 	TestFunc2(1.2)
-	print("TestFunc 종료")
+	print("TestFunc finish")
 	
-	print("g_test::TestFunc() 호출")
-	-- 내부에서 lua_yield() 가 호출된다.
+	print("g_test::TestFunc() test")
 	g_test:TestFunc()
 	g_test:TestFunc2(2.3)
-	print("g_test::TestFunc() 종료")
+	print("g_test::TestFunc() finish")
 	
-	print("ThreadTest 종료")
+	print("ThreadTest finish")
 end

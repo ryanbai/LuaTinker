@@ -1,24 +1,18 @@
--- Å×½ºÆ® ÇÔ¼ö
+-- µ÷ÓÃÈë¿Ú
 function test_error()
-	
-	print("test_error() called !!")
-	
-	test_error_1()
+    print("test_error() called !!")
+    test_error_1()
 end
 
--- Å×½ºÆ® ÇÔ¼ö
+-- µÚ¶ş²ãÇ¶Ì×µ÷ÓÃ
 function test_error_1()
-
-	print("test_error_1() called !!")
-	
-	test_error_2()
+    print("test_error_1() called !!")
+    test_error_2()
 end
 
--- Å×½ºÆ® ÇÔ¼ö
+-- µÚÈı²ãÇ¶Ì×µ÷ÓÃ
 function test_error_2()
-
-	print("test_error_2() called !!")
-	
-	-- Á¸ÀçÇÏÁö ¾Ê´Â ÇÔ¼ö È£ÃâÀ» ½ÃµµÇÑ´Ù.
-	test_error_3()
+    print("test_error_2() called !!")
+    -- ²»´æÔÚ
+    test_error_3()
 end

@@ -1,44 +1,42 @@
-// sample1.cpp : C++ ¿Í Lua »óÈ£°£ÀÇ ÇÔ¼ö ½ÇÇàÀ» ¾Ë¾Æº»´Ù.
+// sample1.cpp : C++ å’Œ luaå‡½æ•°äº’è°ƒ
 //
 
 #include <iostream>
 
-extern "C" 
+extern "C"
 {
-	#include "lua.h"
-	#include "lualib.h"
-	#include "lauxlib.h"
+    #include "lua.h"
+    #include "lualib.h"
+    #include "lauxlib.h"
 };
 
 #include "lua_tinker.h"
 
 int cpp_func(int arg1, int arg2)
 {
-	return arg1 + arg2;
+    return arg1 + arg2;
 }
 
 int main()
 {
-	// Lua ¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
-	lua_State* L = lua_open();
+    // open lua
+    lua_State* L = lua_open();
+    // open base library
+    luaopen_base(L);
+    // å°†cpp_funcç»‘å®šåˆ°lua
+    lua_tinker::def(L, "cpp_func", cpp_func);
 
-	// Lua ±âº» ÇÔ¼öµéÀ» ·ÎµåÇÑ´Ù.- print() »ç¿ë
-	luaopen_base(L);
+    // sample1.lua
+    lua_tinker::dofile(L, "sample1.lua");
 
-	// LuaTinker ¸¦ ÀÌ¿ëÇØ¼­ ÇÔ¼ö¸¦ µî·ÏÇÑ´Ù.
-	lua_tinker::def(L, "cpp_func", cpp_func);
+    // è°ƒç”¨sample1.luaä¸­çš„lua_funcå‡½æ•°
+    int result = lua_tinker::call<int>(L, "lua_func", 3, 4);
 
-	// sample1.lua ÆÄÀÏÀ» ·Îµå/½ÇÇàÇÑ´Ù.
-	lua_tinker::dofile(L, "sample1.lua");
+    // lua_func(3,4)
+    printf("lua_func(3,4) = %d\n", result);
 
-	// sample1.lua ÀÇ ÇÔ¼ö¸¦ È£ÃâÇÑ´Ù.
-	int result = lua_tinker::call<int>(L, "lua_func", 3, 4);
+    // close lua
+    lua_close(L);
 
-	// lua_func(3,4) ÀÇ °á°ú¹° Ãâ·Â
-	printf("lua_func(3,4) = %d\n", result);
-
-	// ÇÁ·Î±×·¥ Á¾·á
-	lua_close(L);
-
-	return 0;
+    return 0;
 }
