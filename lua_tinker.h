@@ -925,7 +925,7 @@ struct mem_var_array_wrapper<T, char, Size> : public var_base
         strncpy((read<T *>(L, 1)->*_var), read<char *>(L, 3), Size - 1);
         (read<T *>(L, 1)->*_var)[Size - 1] = 0;
     }
-    };
+};
 
 #define CHECK_USERDATA_IS_VALID(N)                                                  \
     const char* meta_name##N = class_name<typename class_type<T##N>::type>::name();\
